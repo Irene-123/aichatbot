@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import openai
 import configparser
 
@@ -15,7 +15,7 @@ openai.api_key = get_api_key()
 
 @app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    return render_template('index.html')
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
